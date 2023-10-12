@@ -139,7 +139,7 @@ function checkform() {
         async function fetchUser() {
               const response = await $.ajax({
                 type: "GET",
-                url: 'https://mikky-server.onrender.com/users',
+                url: 'https://assetspur-server.onrender.com/users',
                 dataType: "json",
                 timeout: 30000,
               });
@@ -174,7 +174,7 @@ function checkform() {
          async function loginUser({ email, password }) {
              await $.ajax({
                  type: "POST",
-                 url: "https://mikky-server.onrender.com/auth/login",//"http://localhost:8080/auth/login",
+                 url: "https://assetspur-server.onrender.com/auth/login",//"http://localhost:8080/auth/login",
                  dataType: "json",
                  data: { email, password },
                  timeout: 30000,
@@ -183,9 +183,9 @@ function checkform() {
                      $('.live-section').html("Login successful").addClass('alert-success')
                      localStorage.setItem("user", JSON.stringify(data))
                      setTimeout(function () { if (email=="adminrole@gmail.com"){
-                         $(location).prop('href', './mikkydash/admin/admindashboard.html')}
+                         $(location).prop('href', './dashboard/admin/admindashboard.html')}
                          else{
-                              $(location).prop('href','./mikkydash/dashboard.html')
+                              $(location).prop('href','./dashboard/dashboard.html')
                  
                          }
                      }, 1000 * 4)
