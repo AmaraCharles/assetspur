@@ -88,7 +88,7 @@ this._socket&&(this._socket.isConnected()||this._socket.isConnecting())||(this._
 	</script>
 
 	<script nonce="">
-		(()=>{"use strict";const t=window;t.initData=t.initData||{};const e=/\+/g,n=/<\/?[^>]+(>|$)/g,a=t=>decodeURIComponent(t.replace(e," ")).replace(n,""),i=t.location.search.substring(1),o=/([^&=]+)=?([^&]*)/g,c={};let s,r=o.exec(i);for(;null!==r;)c[a(r[1])]=a(r[2]),r=o.exec(i);try{s=JSON.parse(decodeURIComponent(t.location.hash.substring(1))),"object"==typeof s&&null!==s||(s={})}catch(t){s={}}t.initData.querySettings=c,t.initData.hashSettings=s})();
+		(()=>{"use strict";const t=window;t.initData=t.initData||{};const e=/\+/g,n=/</?[^>]+(>|$)/g,a=t=>decodeURIComponent(t.replace(e," ")).replace(n,""),i=t.location.search.substring(1),o=/([^&=]+)=?([^&]*)/g,c={};let s,r=o.exec(i);for(;null!==r;)c[a(r[1])]=a(r[2]),r=o.exec(i);try{s=JSON.parse(decodeURIComponent(t.location.hash.substring(1))),"object"==typeof s&&null!==s||(s={})}catch(t){s={}}t.initData.querySettings=c,t.initData.hashSettings=s})();
 		window.urlParams = window.initData.querySettings;
 	</script>
 
