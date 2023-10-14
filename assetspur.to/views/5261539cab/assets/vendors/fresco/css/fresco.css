@@ -912,7 +912,7 @@
 .fr-window-skin-fresco .fr-close-icon,
 .fr-window-skin-fresco .fr-thumbnails-side-button-icon,
 .fr-window-skin-fresco .fr-error-icon {
-  background-image: url('https://assetspur.to/views/5261539cab/assets/vendors/fresco/fresco-skins/sprite.svg');
+  background-image: url('./assetspur.to/views/5261539cab/assets/vendors/fresco/fresco-skins/sprite.svg');
 }
 /* fallback png sprite */
 .fr-window-skin-fresco.fr-no-svg .fr-side-button-icon,

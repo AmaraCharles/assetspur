@@ -1,6 +1,6 @@
 HTTrack3.49-2+htsswf+htsjava launched on Mon, 09 Oct 2023 14:54:59 at https://www.assetspur.to +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
 assetspur
-(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://www.Assetspur.to -O1 "C:\My Web Sites\assetspur" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://www.assetspur.to -O1 "C:\My Web Sites\assetspur" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
 
 
 
@@ -16,25 +16,25 @@ assetspurassetspur
 assetspurassetspur
 14:55:02	Warning: 	Moved Permanently for https://wwassetspurex.to/robots.txtassetspur
 assetspurassetspur
-14:55:02	Warning: 	Redirected link is identical because of 'URLassetspuroption: https://www.Assetspur.to/robots.txt and https://Assetspur.to/robots.txt
+14:55:02	Warning: 	Redirected link is identical because of 'URLassetspuroption: https://www.assetspur.to/robots.txt and ./assetspur.to/robots.txt
 
-14:55:02	Warning: 	Warning moved treated for https://www.Assetspur.to/robots.txt (real one is https://Assetspur.to/robots.txt)
+14:55:02	Warning: 	Warning moved treated for https://www.assetspur.to/robots.txt (real one is ./assetspur.to/robots.txt)
 
-14:56:41	Warning: 	File not parsed, looks like binary: https://Assetspur.to/modules/4b36101dcc/public/assets/css/openhand.cur
+14:56:41	Warning: 	File not parsed, looks like binary: ./assetspur.to/modules/4b36101dcc/public/assets/css/openhand.cur
 
-14:56:41	Warning: 	File not parsed, looks like binary: https://Assetspur.to/modules/4b36101dcc/public/assets/css/closedhand.cur
+14:56:41	Warning: 	File not parsed, looks like binary: ./assetspur.to/modules/4b36101dcc/public/assets/css/closedhand.cur
 
-14:56:41	Error: 	"Not Found" (404) at link https://Assetspur.to/modules/910a07777b/assets/images/toggle_open.png (from https://Assetspur.to/modules/910a07777b/assets/css/js_composer.min.css)
+14:56:41	Error: 	"Not Found" (404) at link ./assetspur.to/modules/910a07777b/assets/images/toggle_open.png (from ./assetspur.to/modules/910a07777b/assets/css/js_composer.min.css)
 
-14:56:41	Error: 	"Not Found" (404) at link https://Assetspur.to/modules/910a07777b/assets/images/toggle_close.png (from https://Assetspur.to/modules/910a07777b/assets/css/js_composer.min.css)
+14:56:41	Error: 	"Not Found" (404) at link ./assetspur.to/modules/910a07777b/assets/images/toggle_close.png (from ./assetspur.to/modules/910a07777b/assets/css/js_composer.min.css)
 
-14:56:41	Error: 	"Not Found" (404) at link https://Assetspur.to/modules/910a07777b/assets/images/flickr.png (from https://Assetspur.to/modules/910a07777b/assets/css/js_composer.min.css)
+14:56:41	Error: 	"Not Found" (404) at link ./assetspur.to/modules/910a07777b/assets/images/flickr.png (from ./assetspur.to/modules/910a07777b/assets/css/js_composer.min.css)
 
-14:56:41	Error: 	"Not Found" (404) at link https://Assetspur.to/modules/910a07777b/assets/vc/tick.png (from https://Assetspur.to/modules/910a07777b/assets/css/js_composer.min.css)
+14:56:41	Error: 	"Not Found" (404) at link ./assetspur.to/modules/910a07777b/assets/vc/tick.png (from ./assetspur.to/modules/910a07777b/assets/css/js_composer.min.css)
 
-14:56:41	Error: 	"Not Found" (404) at link https://Assetspur.to/modules/910a07777b/assets/vc/remove.png (from https://Assetspur.to/modules/910a07777b/assets/css/js_composer.min.css)
+14:56:41	Error: 	"Not Found" (404) at link ./assetspur.to/modules/910a07777b/assets/vc/remove.png (from ./assetspur.to/modules/910a07777b/assets/css/js_composer.min.css)
 
-14:56:41	Warning: 	File not parsed, looks like binary: https://Assetspur.to/views/5261539cab/assets/vendors/liquid-icon/lqd-essentials/fonts/lqd-essentials.woff2
+14:56:41	Warning: 	File not parsed, looks like binary: ./assetspur.to/views/5261539cab/assets/vendors/liquid-icon/lqd-essentials/fonts/lqd-essentials.woff2
 
 
 
