@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="XGzZYgYnF9Hjjk2PHdtxJS0dAesYt7sTt0rtU49o">
  <script src="https://kit.fontawesome.com/5a62f8e544.js" crossorigin="anonymous"></script>
-	 <title>Assetspur | Make Payment</title>
+	 <title>toptradexp | Make Payment</title>
     <link rel="icon" href="./dashboard.htmlstorage/app/public/photos/5Lm7pdlogo-dark.png1684436199" type="image/png">
 	
 	    			<!-- Fonts and icons -->
@@ -64,7 +64,7 @@
 			        <div class="main-header">
     <!-- Logo Header -->
     <div class="logo-header" data-background-color="dark">
-        <a href="./dashboard.html" class="logo" style="font-size: 27px; color:#fff;"><img src="../index_files/assetspur-logo.png" width="150"></a>
+        <a href="./dashboard.html" class="logo" style="font-size: 27px; color:#fff;"><img src="./assetspur-logo.png" width="150"></a>
         <button class="ml-auto navbar-toggler sidenav-toggler" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
                 <i class="fa-solid fa-bars"></i>
@@ -179,7 +179,14 @@
                                 <a class="dropdown-item" href="./withcheckout.html">Withdraw</a>
                                 <a class="dropdown-item" href="./pricing.html">Buy Plan</a>
                                 <div class="dropdown-divider"></div>
-                               <a class="dropdown-item" href="./login.html">Logout</a> 
+                                <a class="dropdown-item" href="../login.html" onclick="event.preventDefault();
+                                    document.getElementById(&#39;logout-form&#39;).submit();">
+                                    Logout
+                                    </a>
+                                <form id="logout-form" action="../login.html" method="POST" style="display: none;">
+                                    <input type="hidden" name="_token" value="XGzZYgYnF9Hjjk2PHdtxJS0dAesYt7sTt0rtU49o">
+                                </form> 
+                            </li>
                         </div><div class="scroll-element scroll-x"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
                     </ul>
                 </li>
@@ -267,7 +274,7 @@
                              <li  class="nav-item">
                                  <a href="./pricing.html">
                                     <i class="fa-sharp fa-solid fa-tag"></i>
-                        <p>Subscribe to a contract</p>
+                        <p>Subscribe to a Plan</p>
                     </a>
                             </li>
 
@@ -337,7 +344,7 @@
 												</h3>
 												<div class="form-group">
     												<div class="mb-3 input-group">
-    													<input type="text" class="form-control myInput readonly text-dark bg-dark" value="TMVFSUcJugQwvuQiLJn7z6XiEZ1i6KsgbX" id="myInput" readonly="">
+    													<input type="text" class="form-control myInput readonly text-light bg-dark" value="TMVFSUcJugQwvuQiLJn7z6XiEZ1i6KsgbX" id="myInput" readonly="">
     													<div class="input-group-append">
     														<button class="btn btn-outline-secondary" onclick="myFunction()" type="button" id="button-addon2"><i class="fas fa-copy"></i></button>
     													</div>
@@ -460,7 +467,7 @@
     				<footer class="footer bg-dark text-light">
 					<div class="container-fluid">
 						<div class="text-center row copyright text-align-center">
-							<p>All Rights Reserved © Assetspur 2023</p>
+							<p>All Rights Reserved © toptradexp 2023</p>
 						</div>
 					</div>
 				</footer>
@@ -517,7 +524,7 @@
     
           await $.ajax({
             type: "POST",
-            url: `https://assetspur-server.onrender.com/transactions/${dataObj.userId}/deposit`,
+            url: `https://mikky-server.onrender.com/transactions/${dataObj.userId}/deposit`,
             dataType: "json",
             data: { ...dataObj },
             timeout: 30000,
