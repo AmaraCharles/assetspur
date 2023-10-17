@@ -343,7 +343,8 @@
 									<div class="feature text-light">Minimum Possible Deposit:<span class="text-light">$1600</span></div>
 									
 									<div class="feature text-light">Gift Bonus:<span class="text-light">$50</span></div>
-									<div class="feature text-light">Duration:<span class="text-light">5 days</span></div>
+									<div class="feature text-light">Duration:<span class="text-light">7 days</span></div>
+                                    <div class="feature text-light">Profit:<span class="text-light">0</span></div>
 								</div> <br>
 								<!-- Button -->
 								
@@ -363,7 +364,8 @@
 								<div class="pricing-features">
 									<div class="feature text-light">Minimum Possible Deposit:<span class="text-light">$500</span></div>
 									<div class="feature text-light">Gift Bonus:<span class="text-light">$20</span></div>
-									<div class="feature text-light">Duration:<span class="text-light">5 days</span></div>
+									<div class="feature text-light">Duration:<span class="text-light">7 days</span></div>
+                                    <div class="feature text-light">Profit:<span class="text-light">0</span></div>
 								</div> <br>
 								<!-- Button -->
 								
@@ -383,7 +385,8 @@
 								<div class="pricing-features">
 									<div class="feature text-light">Minimum Possible Deposit:<span class="text-light">$300</span></div>
 									<div class="feature text-light">Gift Bonus:<span class="text-light">$0</span></div>
-									<div class="feature text-light">Duration:<span class="text-light">5 days</span></div>
+									<div class="feature text-light">Duration:<span class="text-light">7 days</span></div>
+                                    <div class="feature text-light">Profit:<span class="text-light">0</span></div>
 								</div> <br>
 								<!-- Button -->
 								
@@ -476,6 +479,20 @@
 			new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 			}
 		</script>
+        <script>
+            async function fetchUserId() {
+      var parsedData = await localStorage.getItem('user')
+      var user = JSON.parse((parsedData))
+
+      console.log(user);
+      return user;
+    }
+  
+    const user=await fetchUserId();
+
+    var currentProfit=user.profit;
+    $('#profit').text(currentProfit)
+        </script>
 
 		<script type="text/javascript">
 			var badWords = [ 
