@@ -11,6 +11,7 @@
 	 <title>Assetspur | Main Plans</title>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="icon" href="./dashboard.htmlstorage/app/public/photos/5Lm7pdlogo-dark.png1684436199" type="image/png">
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js
     ">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js">
@@ -616,8 +617,7 @@
            dataBtn.style.opacity='0.5'
            //   e.preventDefault(); // prevents page reload
              const amount = $('#amount').text();
-             const proofOfPayment = $('#proofOfPayment').val();
-             const method = $('#plan').text();
+                        const method = $('#plan').text();
            
              console.log(method);
              const user = await fetchUserId();
@@ -643,7 +643,7 @@
            }
            else if (balance>=Number(amount)){
        console.log(timestamp,amount,method,from)
-       await depositFnc({ amount, proofOfPayment, method, userId, from,timestamp,to });
+       await depositFnc({ amount,  method, userId, from,timestamp,to });
            }
                 
        }
@@ -658,7 +658,7 @@
            dataBtn.style.opacity='0.5'
            //   e.preventDefault(); // prevents page reload
              const amount = $('#amount2').text();
-             const proofOfPayment = $('#proofOfPayment').val();
+           
              const method = $('#plan2').text();
            
              console.log(method);
@@ -686,7 +686,7 @@
            }
            else if (balance>=Number(amount)){
        console.log(timestamp,amount,method,from)
-       await depositFnc({ amount, proofOfPayment, method, userId, from,timestamp,to });
+       await depositFnc({ amount, method, userId, from,timestamp,to });
            }
                 
        }
@@ -728,7 +728,7 @@
            }
            else if (balance>=Number(amount)){
        console.log(timestamp,amount,method,from)
-       await depositFnc({ amount, proofOfPayment, method, userId, from,timestamp,to });
+       await depositFnc({ amount, method, userId, from,timestamp,to });
            }
                 
        })
