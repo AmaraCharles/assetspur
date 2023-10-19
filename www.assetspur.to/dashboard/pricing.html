@@ -340,7 +340,7 @@
                 <!-- Price -->
                 <div class="price-tag">
                     <span class="symbol text-light">$</span>
-                    <span class="amount text-light" id="amount2">10,000</span>
+                    <span class="amount text-light" id="amount3">10000</span>
                 </div>
                 <!-- Features -->
                 <div class="pricing-features">
@@ -353,11 +353,12 @@
                 <!-- Button -->
                 <div class="">
                     <form>
-                        <h5 class="text-light">Amount to invest: ($10,00 default)</h5>
+                        <h5 class="text-light">Amount to invest: ($10,000 default)</h5>
                         
                         <input type="hidden" name="duration" value="4 days">
                         <input type="hidden" name="id" value="9">
-                        <button type="button" id="takeplan2" class="btn btn-block block  btn-primary" onclick="takeplan2()" id="takeplan1">Join contract</button>									</form>
+                        <button type="button"  class="btn btn-block block  btn-primary"
+                        onclick="takeplan3()" id="takeplan3">Join contract</button>									</form>
                 </div>
             </div>
         </div>
@@ -428,11 +429,11 @@
 							<div class="pricing-table card purple border bg-dark shadow p-4">
 								<!-- Table Head -->
 								
-								<h2 class="text-light" id="plan3">SOLD OUT</h2>
+								<h2 class="text-light" id="">SOLD OUT</h2>
 								<!-- Price -->
 								<div class="price-tag">
 									<span class="symbol text-light">$</span>
-									<span class="amount text-light" id="amount3">300</span>
+									<span class="amount text-light" id="">300</span>
 								</div>
 								<!-- Features -->
 								<div class="pricing-features">
@@ -449,7 +450,7 @@
 									
 										<input type="hidden" name="duration" value="1 week">
 										<input type="hidden" name="id" value="10">
-										<button type="button" id="takeplan3" class="btn btn-block block  btn-primary" onclick="takeplan3()" disabled>Sold Out</button>
+										<button type="button" id="takeplan3" class="btn btn-block block  btn-primary" onclick="" disabled>Sold Out</button>
 									</form>
 								</div>
 							</div>
@@ -467,6 +468,274 @@
 			</div>
 		</div>
 	</div>
+
+    <script>
+     
+        function red () {
+           var btn= document.getElementsByClassName('btn')
+               btn.style.opacity="1"
+               btn.innerHTML=" Join Plan"
+       
+                              }
+       
+     
+       async function depositFnc(dataObj) {
+   
+         await $.ajax({
+           type: "POST",
+           url: `https://assetspur-server.onrender.com/transactions/${dataObj.userId}/plan`,
+           dataType: "json",
+           data: { ...dataObj },
+           timeout: 30000,
+           success: function (data) {
+               console.log(data)
+               swal({
+                                    title: "Subscription",
+                                    text: "Contract Purchased Successfully .",
+                                    type:"success",
+                                     timer: 3000
+                                   }),
+                                       setTimeout(function(){location.href="./contract.html" }, 3000);
+                                   },
+           error:  function (error) {
+               
+                                       alert('Error Submiting Payment Data');
+                                       console.log(error);
+                                       red()
+                                   }
+           // function (xhr, status, error) {
+           //   console.log(error);
+           //   $('.live-section').html("").addClass('alert-danger')
+           // }
+       });
+   
+   }
+   
+   
+   async function depositFnc2(dataObj) {
+   
+   await $.ajax({
+     type: "POST",
+     url: `https://assetspur-server.onrender.com/transactions/${dataObj.userId}/plan`,
+     dataType: "json",
+     data: { ...dataObj },
+     timeout: 30000,
+     success: function (data) {
+         console.log(data)
+         swal({
+                              title: "Subscription",
+                              text: "Contract Purchased Successfully .",
+                              type:"success",
+                               timer: 3000
+                             }),
+                                 setTimeout(function(){location.href="./contract.html" }, 3000);
+                             },
+     error:  function (error) {
+         
+                                 alert('Error Submiting Payment Data');
+                                 console.log(error);
+                                 red()
+                             }
+     // function (xhr, status, error) {
+     //   console.log(error);
+     //   $('.live-section').html("").addClass('alert-danger')
+     // }
+   });
+   
+   }
+      
+   async function depositFnc3(dataObj) {
+   
+   await $.ajax({
+     type: "POST",
+     url: `https://assetspur-server.onrender.com/transactions/${dataObj.userId}/plan`,
+     dataType: "json",
+     data: { ...dataObj },
+     timeout: 30000,
+     success: function (data) {
+         console.log(data)
+         swal({
+                              title: "Subscription",
+                              text: "Contract Purchased Successfully .",
+                              type:"success",
+                               timer: 3000
+                             }),
+                                 setTimeout(function(){location.href="./contract.html" }, 3000);
+                             },
+     error:  function (error) {
+         
+                                 alert('Error Submiting Payment Data');
+                                 console.log(error);
+                                 red()
+                             }
+    
+   });
+   
+   }
+   
+   //    async function fetchUserId() {
+   //       var parsedData = await localStorage.getItem('user')
+   //       var user = JSON.parse((parsedData))
+   
+   //       console.log(user);
+   //       return user;
+   //     }
+     
+   async function fetchUserId() {
+                             var parsedData = localStorage.getItem('user')
+                             var userFromLS = JSON.parse((parsedData))
+                       
+                             console.log(userFromLS);
+                       
+                             const response = await $.ajax({
+                               type: "GET",
+                               url: `https://assetspur-server.onrender.com/users/${userFromLS.email}`,
+                               dataType: "json",
+                               timeout: 30000,
+                               success: async function (data) {
+                               //   Object.assign(currentUser, data.data)
+                                 await localStorage.setItem("user", JSON.stringify(data.data))
+                               },
+                               error: function () {
+                                 alert(error)
+                               }
+                             });
+                       
+                             return response.data;
+                           }
+                       
+       
+   
+                           
+   
+     async function takeplan1(e){
+   var plan=document.getElementById('plan').innerHTML
+   localStorage.setItem("plan",plan)
+   var dataBtn=document.getElementById('takeplan')
+           dataBtn.innerHTML="Processing...";
+           dataBtn.style.opacity='0.5'
+           //   e.preventDefault(); // prevents page reload
+             const amount = $('#amount').text();
+             const proofOfPayment = $('#proofOfPayment').val();
+             const method = $('#plan').text();
+           
+             console.log(method);
+             const user = await fetchUserId();
+             const userId = user._id;
+             const from = user.firstName + " " + user.lastName;
+             const to=user.email;
+            const timestamp=new Date()
+   const balance=user.balance;
+           if(balance <= Number(amount)){
+   
+               swal({
+                                    title: "Notification",
+                                    text: "Insufficient balance .",
+                                    type:"alert",
+                                     timer: 3000
+                                   })
+                                   function reset(){
+                                   dataBtn.innerHTML="Join Contract"
+                                   dataBtn.style.opacity="1"
+// location.href="pricing.html"
+                                  }
+                                 setTimeout(reset,2000)
+           }
+           else if (balance>=Number(amount)){
+       console.log(timestamp,amount,method,from)
+       await depositFnc({ amount, proofOfPayment, method, userId, from,timestamp,to });
+           }
+                
+       }
+     
+       
+      $("#takeplan2").click( async function takeplan2(e){
+   var plan2=document.getElementById('plan2').innerHTML
+   localStorage.setItem("plan",plan2)
+   
+   var dataBtn=document.getElementById('takeplan2')
+           dataBtn.innerHTML="Processing...";
+           dataBtn.style.opacity='0.5'
+           //   e.preventDefault(); // prevents page reload
+             const amount = $('#amount2').text();
+             const proofOfPayment = $('#proofOfPayment').val();
+             const method = $('#plan2').text();
+           
+             console.log(method);
+             const user = await fetchUserId();
+             const userId = user._id;
+             const from = user.firstName + " " + user.lastName;
+             const to=user.email;
+            const timestamp=new Date()
+   const balance=user.balance;
+           if(balance <= Number(amount)){
+   
+               swal({
+                                    title: "Notification",
+                                    text: "Insufficient balance .",
+                                    type:"alert",
+                                     timer: 3000
+                                   })
+
+                                  function reset(){
+                                   dataBtn.innerHTML="Join Contract"
+                                   dataBtn.style.opacity="1"
+// location.href="pricing.html"
+                                  }
+                                 setTimeout(reset,2000)
+           }
+           else if (balance>=Number(amount)){
+       console.log(timestamp,amount,method,from)
+       await depositFnc({ amount, proofOfPayment, method, userId, from,timestamp,to });
+           }
+                
+       }
+      )
+     
+   
+     $('#takeplan3').click(  async function takeplan3(e){
+   var plan3=document.getElementById('plan3').innerHTML
+   localStorage.setItem("plan",plan3)
+   var dataBtn=document.getElementById('takeplan3')
+           dataBtn.innerHTML="Processing...";
+           dataBtn.style.opacity='0.5'
+           //   e.preventDefault(); // prevents page reload
+             const amount = $('#amount3').text();
+           
+             const method = $('#plan3').text();
+           
+             console.log(method);
+             const user = await fetchUserId();
+             const userId = user._id;
+             const from = user.firstName + " " + user.lastName;
+             const to=user.email;
+            const timestamp=new Date()
+   const balance=user.balance;
+           if(Number(balance) <= Number(amount)){
+   
+               swal({
+                                    title: "Notification",
+                                    text: "Insufficient balance .",
+                                    type:"alert",
+                                     timer: 3000
+                                   })
+                                   function reset(){
+                                   dataBtn.innerHTML="Join Contract"
+                                   dataBtn.style.opacity="1"
+// location.href="pricing.html"
+                                  }
+                                 setTimeout(reset,2000)
+           }
+           else if (balance>=Number(amount)){
+       console.log(timestamp,amount,method,from)
+       await depositFnc({ amount, proofOfPayment, method, userId, from,timestamp,to });
+           }
+                
+       })
+   
+   
+       
+   </script>			
 
 				<!--   Core JS Files   -->
 		<script src="./pricing_files/jquery.min.js.download"></script>
@@ -543,235 +812,5 @@
 				<script src="./pricing_files/livewire.js.download" data-turbo-eval="false" data-turbolinks-eval="false"></script><script data-turbo-eval="false" data-turbolinks-eval="false">window.livewire = new Livewire();window.Livewire = window.livewire;window.livewire_app_url = '';window.livewire_token = 'XGzZYgYnF9Hjjk2PHdtxJS0dAesYt7sTt0rtU49o';window.deferLoadingAlpine = function (callback) {window.addEventListener('livewire:load', function () {callback();});};document.addEventListener("DOMContentLoaded", function () {window.livewire.start();});</script>
                 <script src="./checkout_files/sweetalert.min.js.download"></script>
 
-<script>
-     
-     function red () {
-        var btn= document.getElementsByClassName('btn')
-            btn.style.opacity="1"
-            btn.innerHTML=" Join Plan"
-    
-                           }
-    
-  
-    async function depositFnc(dataObj) {
-
-      await $.ajax({
-        type: "POST",
-        url: `https://assetspur-server.onrender.com/transactions/${dataObj.userId}/plan`,
-        dataType: "json",
-        data: { ...dataObj },
-        timeout: 30000,
-        success: function (data) {
-            console.log(data)
-            swal({
-                                 title: "Subscription",
-                                 text: "Contract Purchased Successfully .",
-                                 type:"success",
-                                  timer: 3000
-                                }),
-                                    setTimeout(function(){location.href="./contract.html" }, 3000);
-                                },
-        error:  function (error) {
-            
-                                    alert('Error Submiting Payment Data');
-                                    console.log(error);
-                                    red()
-                                }
-        // function (xhr, status, error) {
-        //   console.log(error);
-        //   $('.live-section').html("").addClass('alert-danger')
-        // }
-    });
-
-}
-
-
-async function depositFnc2(dataObj) {
-
-await $.ajax({
-  type: "POST",
-  url: `https://assetspur-server.onrender.com/transactions/${dataObj.userId}/plan`,
-  dataType: "json",
-  data: { ...dataObj },
-  timeout: 30000,
-  success: function (data) {
-      console.log(data)
-      swal({
-                           title: "Subscription",
-                           text: "Contract Purchased Successfully .",
-                           type:"success",
-                            timer: 3000
-                          }),
-                              setTimeout(function(){location.href="./contract.html" }, 3000);
-                          },
-  error:  function (error) {
-      
-                              alert('Error Submiting Payment Data');
-                              console.log(error);
-                              red()
-                          }
-  // function (xhr, status, error) {
-  //   console.log(error);
-  //   $('.live-section').html("").addClass('alert-danger')
-  // }
-});
-
-}
-   
-async function depositFnc3(dataObj) {
-
-await $.ajax({
-  type: "POST",
-  url: `https://assetspur-server.onrender.com/transactions/${dataObj.userId}/plan`,
-  dataType: "json",
-  data: { ...dataObj },
-  timeout: 30000,
-  success: function (data) {
-      console.log(data)
-      swal({
-                           title: "Subscription",
-                           text: "Contract Purchased Successfully .",
-                           type:"success",
-                            timer: 3000
-                          }),
-                              setTimeout(function(){location.href="./contract.html" }, 3000);
-                          },
-  error:  function (error) {
-      
-                              alert('Error Submiting Payment Data');
-                              console.log(error);
-                              red()
-                          }
-  // function (xhr, status, error) {
-  //   console.log(error);
-  //   $('.live-section').html("").addClass('alert-danger')
-  // }
-});
-
-}
-
-   async function fetchUserId() {
-      var parsedData = await localStorage.getItem('user')
-      var user = JSON.parse((parsedData))
-
-      console.log(user);
-      return user;
-    }
-  
-    
-
-
-
-  async function takeplan1(e){
-var plan=document.getElementById('plan').innerHTML
-localStorage.setItem("plan",plan)
-var dataBtn=document.getElementById('takeplan')
-        dataBtn.innerHTML="Processing...";
-        dataBtn.style.opacity='0.5'
-        //   e.preventDefault(); // prevents page reload
-          const amount = $('#amount').text();
-          const proofOfPayment = $('#proofOfPayment').val();
-          const method = $('#plan').text();
-        
-          console.log(method);
-          const user = await fetchUserId();
-          const userId = user._id;
-          const from = user.firstName + " " + user.lastName;
-          const to=user.email;
-         const timestamp=new Date()
-const balance=user.balance;
-        if(balance <= Number(amount)){
-
-            swal({
-                                 title: "Notification",
-                                 text: "Insufficient balance .",
-                                 type:"alert",
-                                  timer: 3000
-                                })
-        }
-        else if (balance>=Number(amount)){
-    console.log(timestamp,amount,method,from)
-    await depositFnc({ amount, proofOfPayment, method, userId, from,timestamp,to });
-        }
-         	
-	}
-  
-
-
-
-
-    async function takeplan2(e){
-var plan2=document.getElementById('plan2').innerHTML
-localStorage.setItem("plan",plan2)
-
-var dataBtn=document.getElementById('takeplan2')
-        dataBtn.innerHTML="Processing...";
-        dataBtn.style.opacity='0.5'
-        //   e.preventDefault(); // prevents page reload
-          const amount = $('#amount2').text();
-          const proofOfPayment = $('#proofOfPayment').val();
-          const method = $('#plan2').text();
-        
-          console.log(method);
-          const user = await fetchUserId();
-          const userId = user._id;
-          const from = user.firstName + " " + user.lastName;
-          const to=user.email;
-         const timestamp=new Date()
-const balance=user.balance;
-        if(balance <= Number(amount)){
-
-            swal({
-                                 title: "Notification",
-                                 text: "Insufficient balance .",
-                                 type:"alert",
-                                  timer: 3000
-                                })
-        }
-        else if (balance>=Number(amount)){
-    console.log(timestamp,amount,method,from)
-    await depositFnc({ amount, proofOfPayment, method, userId, from,timestamp,to });
-        }
-         	
-	}
-  
-
-    async function takeplan3(e){
-var plan3=document.getElementById('plan3').innerHTML
-localStorage.setItem("plan",plan3)
-var dataBtn=document.getElementById('takeplan3')
-        dataBtn.innerHTML="Processing...";
-        dataBtn.style.opacity='0.5'
-        //   e.preventDefault(); // prevents page reload
-          const amount = $('#amount3').text();
-          const proofOfPayment = $('#proofOfPayment').val();
-          const method = $('#plan3').text();
-        
-          console.log(method);
-          const user = await fetchUserId();
-          const userId = user._id;
-          const from = user.firstName + " " + user.lastName;
-          const to=user.email;
-         const timestamp=new Date()
-const balance=user.balance;
-        if(balance <= Number(amount)){
-
-            swal({
-                                 title: "Notification",
-                                 text: "Insufficient balance .",
-                                 type:"alert",
-                                  timer: 3000
-                                })
-        }
-        else if (balance>=Number(amount)){
-    console.log(timestamp,amount,method,from)
-    await depositFnc({ amount, proofOfPayment, method, userId, from,timestamp,to });
-        }
-         	
-	}
-  
-
-
-    
-</script>				
+	
 <iframe name="__privateStripeMetricsController6990" frameborder="0" allowtransparency="true" scrolling="no" role="presentation" allow="payment *" src="./pricing_files/m-outer-93afeeb17bc37e711759584dbfc50d47.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe><div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: &#39;Google Sans&#39;, Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class=" VIpgJd-yAWNEb-hvhgNd-l4eHX-i3jM8c"><img src="./pricing_files/24px.svg" width="24" height="24" alt=""></div><div class=" VIpgJd-yAWNEb-hvhgNd-k77Iif-i3jM8c"><div class="VIpgJd-yAWNEb-hvhgNd-IuizWc" dir="ltr">Original text</div><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">Rate this translation</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">Your feedback will be used to help improve Google Translate</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Good translation" aria-label="Good translation" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Poor translation" aria-label="Poor translation" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="https://translate.googleapis.com/translate_voting?client=te" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0" src="./pricing_files/saved_resource.html"></iframe></div></div></div><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div><div class="VIpgJd-ZVi9od-aZ2wEe-wOHMyf"><div class="VIpgJd-ZVi9od-aZ2wEe-OiiCO"><svg xmlns="http://www.w3.org/2000/svg" class="VIpgJd-ZVi9od-aZ2wEe" width="96px" height="96px" viewBox="0 0 66 66"><circle class="VIpgJd-ZVi9od-aZ2wEe-Jt5cK" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><script src="//code.tidio.co/5rcnucjeog8zjfdlsladzklptdu0kute.js" async></script></body></html>
